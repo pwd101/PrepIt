@@ -10,9 +10,10 @@ import {
   DialogActions,
   Button,
 } from '@mui/material';
-import './QuizMenu.css';
+import './QuizDropdown.css';
+import ConfirmationDialog from './ConfirmationDialog';
 
-const QuizMenu = ({ activeQuiz, setActiveQuiz, totalQuizzes, quizSize }) => {
+const QuizDropdown = ({ activeQuiz, setActiveQuiz, totalQuizzes, quizSize }) => {
   const [pendingQuizLevel, setPendingQuizLevel] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -36,7 +37,7 @@ const QuizMenu = ({ activeQuiz, setActiveQuiz, totalQuizzes, quizSize }) => {
 
   return (
     <div className="quiz-menu">
-      <FormControl sx={{ minWidth: 120 }} size="small">
+      <FormControl sx={{ minWidth: 120 }} size="small" variant="filled" >
         <InputLabel id="quiz-select-label">Quiz Level</InputLabel>
         <Select
           labelId="quiz-select-label"
@@ -62,25 +63,15 @@ const QuizMenu = ({ activeQuiz, setActiveQuiz, totalQuizzes, quizSize }) => {
         </Select>
       </FormControl>
 
-      <Dialog
+      <ConfirmationDialog
         open={dialogOpen}
         onClose={handleCancel}
-      >
-        <DialogTitle>Change Quiz Level?</DialogTitle>
-        <DialogContent>
-          Are you sure you want to change to Level {pendingQuizLevel}? Your current answers will not be saved.
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCancel} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleConfirm} color="primary" variant="contained">
-            Change Level
-          </Button>
-        </DialogActions>
-      </Dialog>
+        onConfirm={handleConfirm}
+        title="Change Quiz Level?"
+        content={`Are you sure you want to change to Level ${pendingQuizLevel}? Your current answers will not be saved.`}
+      />
     </div>
   );
 };
 
-export default QuizMenu;
+export default QuizDropdown;

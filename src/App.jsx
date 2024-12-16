@@ -2,16 +2,20 @@ import './App.css'
 import React, { useState } from 'react';
 import quizes_json from './assets/q_raw.json';
 import QuizForm from './components/QuizForm';
-import QuizMenu from './components/QuizMenu';
+import QuizDropdown from './components/QuizDropdown';
+import Header from './components/Header';
 
 const App = () => {
   const [activeQuiz, setActiveQuiz] = useState(null)
   const quizSize = 50
   const nbQuiz = Math.floor(quizes_json.length / quizSize)
 
+  const resetQuizState = () => {
+    setActiveQuiz(null);
+  };
+
   const menuQuiz = () => (
     <div className="quiz-container">
-      <h1 className="quiz-title">Select Your Quiz Level</h1>
       <div className="quiz-grid">
         {Array.from({ length: nbQuiz }, (_, i) => (
           <div 
@@ -29,16 +33,16 @@ const App = () => {
   
   return (
     <div id="main_app">
-      <header className="header">
+      <Header resetQuizState={resetQuizState} activeQuiz={activeQuiz}>
         {activeQuiz && (
-          <QuizMenu 
+          <QuizDropdown 
             activeQuiz={activeQuiz}
             setActiveQuiz={setActiveQuiz}
             totalQuizzes={nbQuiz}
             quizSize={quizSize}
           />
         )}
-      </header>
+      </Header>
       <main className="content">
         {activeQuiz ? 
           <QuizForm questions={quizes_json.slice(quizSize * (activeQuiz - 1), quizSize * activeQuiz)}/>

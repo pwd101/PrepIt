@@ -1,0 +1,50 @@
+/* Submit Button Container */
+.submit-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.submit-button {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.submit-button:hover {
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Dialog Content */
+.dialog-title {
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 8px !important;
+}
+
+.dialog-content {
+  padding-top: 8px !important;
+}
+
+/* Question Groups */
+.question-group {
+  margin-bottom: 12px;
+}
+
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.question-button {
+  min-width: 36px !important;
+  height: 28px !important;
+  padding: 4px 8px !important;
+  font-size: 0.8rem !important;
+}
+
+/* Dialog Actions */
+.dialog-actions {
+  padding: 16px !important;
+  padding-bottom: 16px !important;
+}
