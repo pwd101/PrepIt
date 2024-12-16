@@ -1,0 +1,354 @@
+.quiz-form {
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.timer-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border: 1px solid #eee;
+  transition: opacity 0.3s;
+}
+
+.timer-container:hover {
+  opacity: 1;
+}
+
+.timer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.question-timer {
+  background: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.total-timer {
+  color: #888;
+}
+
+.question-header {
+  margin: 1.5rem 0 1rem;
+  text-align: left;
+}
+
+.question-header h2 {
+  color: #1976d2;
+  font-weight: 500;
+}
+
+.question-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.question-progress {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.answer-options {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.answer-option {
+  margin: 0.25rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.answer-option:hover {
+  background-color: #f5f5f5;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  background: #f8f8f8;
+  border-radius: 8px 8px 0 0;
+}
+
+.navigation-buttons button {
+  min-width: 110px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.navigation-buttons button:not(:disabled) {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.navigation-buttons button:not(:disabled):hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.navigation-buttons .review-button {
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navigation-buttons .review-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.navigation-buttons .review-button:hover::before {
+  opacity: 0.05;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.question-grid .grid-button {
+  min-width: unset !important;
+  width: 45px;
+  height: 45px;
+  padding: 0 !important;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.question-grid .MuiButton-outlined {
+  background-color: white;
+  border-color: #e0e0e0;
+  color: #666;
+}
+
+.question-grid .grid-button.answered:not(.flagged) {
+  background-color: #bbdefb;
+  border-color: #90caf9;
+  color: #1565c0;
+}
+
+.question-grid .MuiButton-contained:not(.flagged) {
+  background-color: #1976d2;
+  color: white;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.2);
+}
+
+.question-grid .grid-button.flagged {
+  background-color: #fff3e0;
+  border-color: #ffb74d;
+  color: #e65100;
+}
+
+.question-grid .grid-button.flagged.answered {
+  background-color: #ffe0b2;
+  border-color: #ffb74d;
+  color: #e65100;
+  border-width: 2px;
+}
+
+.question-grid .MuiButton-contained.flagged {
+  background-color: #f57c00;
+  color: white;
+  box-shadow: 0 2px 4px rgba(245, 124, 0, 0.2);
+}
+
+.question-grid .grid-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.question-grid .grid-button.answered:not(.flagged):hover {
+  background-color: #90caf9;
+}
+
+.question-grid .grid-button.flagged:hover {
+  background-color: #ffe0b2;
+}
+
+.question-grid .grid-button.flagged.answered:hover {
+  background-color: #ffcc80;
+}
+
+.MuiTooltip-tooltip {
+  font-size: 0.875rem !important;
+  padding: 8px 12px !important;
+  background-color: rgba(33, 33, 33, 0.95) !important;
+}
+
+.question-number {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.question-number:hover {
+  transform: translateY(-2px);
+}
+
+.question-number.answered {
+  background-color: #4caf50;
+  color: white;
+}
+
+.question-number.flagged {
+  background-color: #ffd700;
+  color: #333;
+}
+
+.question-number.unanswered {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.question-number.current {
+  border: 2px solid #2196f3;
+}
+
+.submit-section {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.submit-container {
+  position: fixed;
+  top: 160px;
+  right: 20px;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border: 1px solid #eee;
+}
+
+.submit-button {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.unanswered-question {
+  color: #f44336;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.review-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.review-toggle svg {
+  margin-right: 0.5rem;
+}
+
+/* Responsive adjustments for timer and submit button */
+@media (max-width: 1200px) {
+  .timer-container {
+    top: auto;
+    bottom: 80px;
+    right: 20px;
+  }
+  
+  .submit-container {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 960px) {
+  .quiz-form {
+    width: 95%;
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .timer-container {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 80px;
+  }
+  
+  .submit-container {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 20px;
+    width: calc(100% - 40px);
+    max-width: 300px;
+  }
+  
+  .quiz-form {
+    padding: 1rem;
+    margin-bottom: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .navigation-buttons button {
+    width: 100%;
+  }
+}

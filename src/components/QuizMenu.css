@@ -1,0 +1,9 @@
+.quiz-menu {
+  padding: 0.5rem;
+}
+
+.question-count {
+  color: #666;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
