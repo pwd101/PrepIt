@@ -23,7 +23,9 @@ const Header = ({ children, resetQuizState, activeQuiz }) => {
   return (
     <header className="header">
       <div className="header-content">
-        <h1 onClick={handleTitleClick}>PrepIt</h1>
+        <div className="header-logo">
+          <h1 onClick={handleTitleClick} >PrepIt</h1>
+        </div>
         <div className="header-menu">
           {children}
         </div>

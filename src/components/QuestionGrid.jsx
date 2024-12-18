@@ -2,8 +2,17 @@ import React from 'react';
 import { Tooltip, Button } from '@mui/material';
 
 const QuestionGrid = ({ questions, selectedAnswers, reviewStatus, quizNum, questionTimes, setQuizNum, formatTime }) => {
+  const flexStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '5px', // Maintain gap between items
+    margin: '10px', // Maintain overall margin
+    flexDirection: 'row',
+    alignItems: 'center'
+  };
+
   return (
-    <div className="question-grid">
+    <div className="question-grid" style={flexStyle}>
       {questions.map((_, index) => {
         const isAnswered = selectedAnswers[index]?.length > 0;
         const isFlagged = reviewStatus[index];
