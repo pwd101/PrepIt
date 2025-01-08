@@ -7,7 +7,7 @@ import Header from './components/Header';
 
 const App = () => {
   const [activeQuiz, setActiveQuiz] = useState(null)
-  const quizSize = 50
+  const quizSize = 20
   const nbQuiz = Math.floor(quizes_json.length / quizSize)
 
   const resetQuizState = () => {

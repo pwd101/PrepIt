@@ -16,6 +16,7 @@ const Header = ({ children, resetQuizState, activeQuiz }) => {
     setDialogOpen(false);
   };
 
+
   const handleCancel = () => {
     setDialogOpen(false);
   };

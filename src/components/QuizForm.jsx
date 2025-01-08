@@ -117,15 +117,10 @@ const QuizForm = ({ questions }) => {
   };
 
   const handleSubmitClick = () => {
-    const unansweredQuestions = selectedAnswers
-      .map((answers, index) => ({ index, answered: answers.length > 0 }))
-      .filter(q => !q.answered);
-    
-    const flaggedQuestions = reviewStatus
-      .map((isFlagged, index) => ({ index, flagged: isFlagged }))
-      .filter(q => q.flagged);
+    const hasUnanswered = selectedAnswers.some(answer => answer.length === 0);
+    const hasFlagged = reviewStatus.some(isFlagged => isFlagged);
 
-    if (unansweredQuestions.length > 0 || flaggedQuestions.length > 0) {
+    if (hasUnanswered || hasFlagged) {
       setSubmitDialogOpen(true);
     } else {
       handleSubmit();
@@ -230,6 +225,7 @@ const QuizForm = ({ questions }) => {
 
     return (
       <div style={{ position: 'relative' }}>
+        
         <Box sx={{ 
           maxWidth: 800, 
           mx: 'auto', 
@@ -256,13 +252,13 @@ const QuizForm = ({ questions }) => {
               </Typography>
             </div>
 
-            <div className="question-header" style={{ marginTop: '0px' }}>
+            <div className="question-header">
               <Typography variant="h6" component="h2" sx={{ mt: 0 }}>
                 Question {quizNum + 1}
               </Typography>
             </div>
 
-            <div className="question-text" style={{ marginTop: '12px' }}>{question.q_text}</div>
+            <div className="question-text">{question.q_text}</div>
 
             <FormControl component="fieldset" className="answer-options">
               {renderAnswerOptions()}
