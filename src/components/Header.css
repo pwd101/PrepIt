@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  padding: 5px 0;
 }
 
 .header-logo {
@@ -22,6 +22,7 @@
   display: flex;
   left: 1em;
   align-items: center;
+  color: rgb(252, 252, 252);
 }
 
 .header-menu {

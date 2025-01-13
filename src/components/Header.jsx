@@ -24,8 +24,10 @@ const Header = ({ children, resetQuizState, activeQuiz }) => {
   return (
     <header className="header">
       <div className="header-content">
-        <div className="header-logo">
-          <h1 onClick={handleTitleClick} >PrepIt</h1>
+        
+        <div className="header-logo" onClick={handleTitleClick}>
+          <img src = "/icon.svg" alt="Prepit Logo" />
+          <span style={{ marginLeft: '5px' }}>PrepIt</span>
         </div>
         <div className="header-menu">
           {children}
