@@ -10,7 +10,7 @@ const QuizResult = ({questions, submissionResult, selectedAnswers }) => {
     const numerateABC = (index, text) => `${String.fromCharCode(65 + index)}. ${text}`
 
     return (
-        <Paper elevation={3} sx={{ p: 3, mt: 4, maxWidth: 1000, margin: 'auto' }}>
+        <Paper elevation={3} sx={{ p: 3, mt: 4, maxWidth: 800, margin: 'auto' }}>
         <Typography variant="h4" gutterBottom align="center">
             Quiz Results
         </Typography>
@@ -35,13 +35,16 @@ const QuizResult = ({questions, submissionResult, selectedAnswers }) => {
                 backgroundColor: isQuestionCorrect ? '#e8f5e9' : '#ffebee'
                 }}
             >
-                <Typography 
-                variant="h6" 
-                color={isQuestionCorrect ? 'success.main' : 'error.main'}
-                gutterBottom
-                >
-                Question {questionIndex + 1}: {question.q_text}
-                </Typography>
+                <div
+                    style={{
+                        fontSize: '1.1rem',
+                        marginBottom: '1rem'
+                    }}
+                    >
+                    Question {questionIndex + 1}:<br/>
+                    {question.q_text}
+                </div>
+                                
 
                 {question.answers.map((answer, answerIndex) => {
                 const isSelected = selectedAnswerIndices.includes(answerIndex);

@@ -25,11 +25,10 @@
 
 #main_app {
   min-height: 100vh;
-  /* background-color: var(--background-light); */
   display: flex;
   flex-direction: column;
   width: 100%;
-  
+  background-color: #dedede;
 }
 
 .content {
@@ -62,7 +61,7 @@
 }
 
 .quiz-card {
-  background: rgb(129, 191, 208);
+  background: rgb(238, 238, 238);
   border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
