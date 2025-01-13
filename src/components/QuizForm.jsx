@@ -163,6 +163,13 @@ const QuizForm = ({ questions }) => {
         <FormControlLabel
           key={answerIndex}
           className="answer-option"
+          sx={{ 
+            '& .MuiFormControlLabel-label': {
+              fontSize: '0.9rem',
+              color: 'rgb(51, 51, 51)'
+
+            }
+          }}
           control={
             isMultiSelect ? (
               <Checkbox

@@ -4,11 +4,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
 } from '@mui/material';
 import './QuizDropdown.css';
 import ConfirmationDialog from './ConfirmationDialog';
@@ -37,8 +32,7 @@ const QuizDropdown = ({ activeQuiz, setActiveQuiz, totalQuizzes, quizSize }) => 
 
   return (
     <div className="quiz-menu">
-      <FormControl sx={{ minWidth: 120 }} size="small" variant="filled" >
-        <InputLabel id="quiz-select-label">Quiz Level</InputLabel>
+      <FormControl sx={{ minWidth: 120 }} size="small" >
         <Select
           labelId="quiz-select-label"
           id="quiz-select"
@@ -67,8 +61,8 @@ const QuizDropdown = ({ activeQuiz, setActiveQuiz, totalQuizzes, quizSize }) => 
         open={dialogOpen}
         onClose={handleCancel}
         onConfirm={handleConfirm}
-        title="Change Quiz Level?"
-        content={`Are you sure you want to change to Level ${pendingQuizLevel}? Your current answers will not be saved.`}
+        title="Switch Quiz Level?"
+        content={`Switch to Level ${pendingQuizLevel}? Your current answers will not be saved.`}
       />
     </div>
   );

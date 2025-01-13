@@ -7,6 +7,7 @@
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
+  min-height: 30px;
 }
 
 .header-content {
@@ -21,7 +22,6 @@
   display: flex;
   left: 1em;
   align-items: center;
-  /* flex: 1; */
 }
 
 .header-menu {
